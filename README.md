@@ -15,7 +15,12 @@ Wordpress API , get post data
 ***
 # required
 
-Wordpress : 5.7.1
+* Wordpress : 5.7.1
+
+* php 7.3
+
+* mysql 5.7
+
 ***
 ### blog
 
