@@ -24,7 +24,9 @@ Wordpress API , get post data
 ***
 ### blog
 
-https://zenn.dev/knaka0209/books/4ee53bad905ec2/viewer/36a219
+* wordpress API + Next.js SSGでJamstackする。アップデート
+
+https://zenn.dev/knaka0209/articles/2501be7ad65d29
 
 ***
 
