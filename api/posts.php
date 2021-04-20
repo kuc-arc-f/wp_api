@@ -21,14 +21,25 @@ $items = [];
 if ( $the_query->have_posts() ) {
 	while ( $the_query->have_posts() ) {
 		$the_query->the_post();
+    $categories = get_the_category();
+    $category_id = '';
+    $category_name = '';
+    if ( $categories ) {
+      $category = $categories[0];
+      $category_id = $category->term_id;
+      $category_name = $category->name;
+    }    
+//echo '<div>' . $category_id . ", name=" .$category_name . '</div>';
     $item = array(
       'ID' => $post->ID,
       'post_title' => get_the_title() ,
       'post_content' => get_the_content() ,
       'post_date' => get_the_date(),
+      'category_id' => $category_id,
+      'category_name' => $category_name,
     );
     $items[] = $item;
-//    echo '<div>' . $post->ID . '</div>';
+//echo '<div>' . $post->ID . '</div>';
 	}
 	wp_reset_postdata();
 }

@@ -1,29 +1,27 @@
 <?php
 // required : wordpress 5.7.1
-// wp posts data API
+// wp data API
 
 require( '../wp-blog-header.php' );
 
 $ID = 0;
 if(isset($_GET['id'])){
   $ID = $_GET['id'];
-//  var_dump($_GET['id']);
+//var_dump($_GET['id']);
+//exit();
 }
 $the_query = new WP_Query(
-  array( 'post_type' => 'post' , 'post__in' => array($ID), ) 
+  array( 'post_type' => 'page' , 'post__in' => array($ID), ) 
 );
 $items = [];
 if ( $the_query->have_posts() ) {
 	while ( $the_query->have_posts() ) {
 		$the_query->the_post();
-    $categories = get_the_category();
-//var_dump($categories);
     $item = array(
       'ID' => $post->ID,
       'post_title' => get_the_title() ,
       'post_content' => get_the_content() ,
       'post_date' => get_the_date(),
-      'categories' => $categories,
     );
     $items[] = $item;
 //    echo '<div>' . $post->ID . '</div>';
